@@ -1,54 +1,70 @@
-.game {
-  width: 600px;
-  height: 200px;
-  border-bottom: 1px solid #000;
-  margin: auto;
+body {
+  padding: 0;
+  margin: 0;
 }
-#dino {
-  width: 50px;
-  height: 50px;
-  background-image: url(img/dino.png);
-  background-size: 50px 50px;
-  position: relative;
-  top: 150px;
+.ground {
+  width: 100vw;
+  height: 30vh;
+  position: absolute;
+  top: 70vh;
+  background: #eee;
+  z-index: 0;
 }
-#cactus {
-  width: 20px;
-  height: 40px;
-  background-image: url(img/cactus.png);
-  background-size: 20px 40px;
-  position: relative;
-  top: 110px;
-  left: 580px;
-  animation: cactusMov 1s infinite linear;
+.dino {
+  width: calc(120px);
+  height: calc(130px);
+  background: url(img/dino.png) no-repeat center;
+  background-size: contain;
+  position: absolute;
+  z-index: 2;
+  top: calc(70vh - 517px / 5);
+  left: 150px;
+  transition: 0.3s;
 }
-@keyframes cactusMov {
-  0% {
-    left: 580px;
-  }
-  100% {
-    left: -20px;
-  }
-}
-
 .jump {
-  animation: jump 0.3s linear;
+  animation: jump 0.7s ease-out;
+}
+.cactus {
+  width: calc(120px);
+  height: calc(140px);
+  background: url(img/cactus.png) no-repeat center;
+  background-size: contain;
+  position: absolute;
+  z-index: 1;
+  top: calc(550px);
+  right: 0;
+}
+.cactusArea {
+  position: absolute;
+  width: 100vw;
+}
+.score {
+  position: absolute;
+  z-index: 6;
+  font-size: 24px;
+  left: 15px;
+  top: 15px;
+  color: black;
+}
+#restart {
+  position: absolute;
+  z-index: 6;
+  font-size: 30px;
+  padding: 30px;
+  top: 35vh;
+  left: 40vw;
+  background: black;
+  color: white;
 }
 
 @keyframes jump {
-  0% {
-    top: 150px;
-  }
-  30% {
-    top: 130px;
+  from {
+    top: calc(70vh - 517px / 5);
   }
   50% {
-    top: 80px;
+    top: calc(70vh - 250px - 517px / 5);
   }
-  80% {
-    top: 130px;
-  }
-  100% {
-    top: 150px;
+  to {
+    top: calc(70vh - 517px / 5);
   }
 }
